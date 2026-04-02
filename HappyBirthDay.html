@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>手紙</title>
+    <style>
+        :root {
+            --bg1: #fffaf5;
+            --bg2: #fff0f5;
+            --paper: #fffdfb;
+            --ink: #5b4b43;
+            --accent: #e8a1b7;
+            --accent-soft: #f6d9e3;
+            --line: #ecd9cf;
+            --shadow: 0 18px 40px rgba(137, 100, 111, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: -apple-system,BlinkMacSystemFont,"Hiragino Mincho ProN","Yu Mincho","Yu Gothic",sans-serif;
+            color: var(--ink);
+            background: radial-gradient(circle at top left, #fff7d9 0, transparent 24%), radial-gradient(circle at bottom right, #ffdfe9 0, transparent 28%), linear-gradient(180deg,var(--bg1),var(--bg2));
+            padding: 24px 14px 42px;
+        }
+
+        .wrap {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .top-note {
+            text-align: center;
+            font-size: 12px;
+            color: #a1848f;
+            letter-spacing: .08em;
+            margin-bottom: 14px;
+        }
+
+        .letter {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            position: relative;
+        }
+
+            .letter::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                background: linear-gradient(transparent 0 31px, rgba(232,161,183,.08) 31px 32px);
+                background-size: 100% 36px;
+                opacity: .3;
+            }
+
+        .header {
+            position: relative;
+            padding: 24px 24px 0px;
+            text-align: center;
+            background: linear-gradient(180deg,#fff7fa,#fffdfb);
+        }
+
+        .stamp {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 68px;
+            height: 68px;
+            border-radius: 18px;
+            border: 2px dashed var(--accent);
+            background: #fff6f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: #cf7f99;
+            transform: rotate(7deg);
+        }
+
+        .title {
+            margin: 4px 0 8px;
+            font-size: 28px;
+            letter-spacing: .08em;
+        }
+
+        .subtitle {
+            margin: 0;
+            font-size: 13px;
+            color: #9b8089;
+        }
+
+        .content {
+            position: relative;
+            padding: 22px 20px 30px;
+        }
+
+        .hero {
+            display: grid;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .image-card {
+            background: #fff7fa;
+            border: 1.5px solid var(--accent-soft);
+            border-radius: 24px;
+            padding: 12px;
+            box-shadow: 0 10px 24px rgba(190,140,155,.10);
+        }
+
+        .image-frame {
+            width: 100%;
+            aspect-ratio: 4/3;
+            border-radius: 18px;
+            border: 2px dashed #e7b7c5;
+            background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,246,249,.95));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+            .image-frame img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+                background: white;
+            }
+
+        .image-placeholder {
+            display: none;
+            text-align: center;
+            color: #ae8593;
+            line-height: 1.8;
+            font-size: 14px;
+            padding: 16px;
+        }
+
+        .lead-box {
+            background: #fffaf2;
+            border: 1px solid #f0e0cf;
+            border-radius: 20px;
+            padding: 16px;
+            font-size: 14px;
+            line-height: 1.9;
+            color: #7b665d;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            color: #bf8094;
+            font-size: 14px;
+            margin: 18px 2px 16px;
+        }
+
+            .divider::before,
+            .divider::after {
+                content: "";
+                height: 1px;
+                flex: 1;
+                background: linear-gradient(90deg, transparent, #e7b7c5, transparent);
+            }
+
+        .body {
+            padding: 4px 8px 0;
+            font-size: 16px;
+            line-height: 2.05;
+            white-space: pre-line;
+        }
+
+            .body p {
+                margin: 0 0 1.15em;
+            }
+
+        .signature {
+            margin-top: 24px;
+            text-align: right;
+            padding-right: 10px;
+            font-size: 16px;
+            letter-spacing: .08em;
+            color: #7d666d;
+        }
+
+        .footer {
+            padding: 0 22px 22px;
+            text-align: center;
+            font-size: 12px;
+            color: #b08f98;
+        }
+
+        @media (min-width: 720px) {
+            .hero {
+                grid-template-columns: 320px 1fr;
+            }
+
+            .content {
+                padding: 26px 26px 34px;
+            }
+
+            .title {
+                font-size: 30px;
+            }
+
+            .body {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="top-note">手紙風デザイン ベース</div>
+
+        <section class="letter">
+            <header class="header">
+                <div class="stamp">❤</div>
+                <h1 class="title">あゆみへ</h1>
+                <p class="subtitle">いつもありがとうの気持ちをこめて</p>
+            </header>
+
+            <div class="content">
+                <div class="divider">✿</div>
+
+                <div class="body">
+                    <p>
+                        なんか改めて言うのは少し照れるけど、いつも一緒にいてくれてありがとう。
+                    </p>
+
+                    <p>
+                        一緒にいる時間がすごく楽しくて、
+                        気づいたら自然と話したいなって思ってる。
+                    </p>
+                    <div class="hero">
+                        <img src="snoopy.png" alt="スヌーピーの画像"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="image-placeholder">
+                            ここにスヌーピー画像が入ります。<br>
+                            <strong>snoopy.png</strong> を同じフォルダに置いてください。
+                        </div>
+
+                        <div class="lead-box">
+                            少しだけ改まって、でも重すぎない感じで読めるようにした
+                            手紙風のベースです。文章はあとから自由に差し替えできます。
+                        </div>
+                    </div>
+                    <p>
+                        こうやって普通に話せる時間も、
+                        一緒に過ごせる時間も、
+                        どっちもすごく大事だなって思ってる。
+                    </p>
+
+                    <p>
+                        これからも、ゆっくりでいいから
+                        たくさん思い出を作っていけたら嬉しいです。
+                    </p>
+                </div>
+                <div class="signature">しょうごより</div>
+            </div>
+
+            <div class="footer">画像や本文はあとから差し替えできます。</div>
+        </section>
+    </div>
+</body>
+</html>
