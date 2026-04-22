@@ -23,9 +23,9 @@
         body {
             margin: 0;
             min-height: 100vh;
-            font-family: -apple-system,BlinkMacSystemFont,"Hiragino Mincho ProN","Yu Mincho","Yu Gothic",sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Hiragino Mincho ProN", "Yu Mincho", "Yu Gothic", sans-serif;
             color: var(--ink);
-            background: radial-gradient(circle at top left, #fff7d9 0, transparent 24%), radial-gradient(circle at bottom right, #ffdfe9 0, transparent 28%), linear-gradient(180deg,var(--bg1),var(--bg2));
+            background: radial-gradient(circle at top left, #fff7d9 0, transparent 24%), radial-gradient(circle at bottom right, #ffdfe9 0, transparent 28%), linear-gradient(180deg, var(--bg1), var(--bg2));
             padding: 24px 14px 42px;
         }
 
@@ -38,17 +38,17 @@
             text-align: center;
             font-size: 12px;
             color: #a1848f;
-            letter-spacing: .08em;
+            letter-spacing: 0.08em;
             margin-bottom: 14px;
         }
 
         .letter {
+            position: relative;
             background: var(--paper);
             border: 1.5px solid var(--line);
             border-radius: 28px;
             box-shadow: var(--shadow);
             overflow: hidden;
-            position: relative;
         }
 
             .letter::before {
@@ -56,16 +56,17 @@
                 position: absolute;
                 inset: 0;
                 pointer-events: none;
-                background: linear-gradient(transparent 0 31px, rgba(232,161,183,.08) 31px 32px);
+                background: linear-gradient( transparent 0 31px, rgba(232, 161, 183, 0.08) 31px 32px );
                 background-size: 100% 36px;
-                opacity: .3;
+                opacity: 0.3;
             }
 
         .header {
             position: relative;
-            padding: 24px 24px 0px;
+            padding: 28px 24px 18px;
             text-align: center;
-            background: linear-gradient(180deg,#fff7fa,#fffdfb);
+            background: linear-gradient(180deg, #fff7fa, #fffdfb);
+            border-bottom: 1px dashed var(--accent-soft);
         }
 
         .stamp {
@@ -83,78 +84,26 @@
             font-size: 26px;
             color: #cf7f99;
             transform: rotate(7deg);
+            box-shadow: 0 6px 12px rgba(207, 127, 153, 0.08);
         }
 
         .title {
-            margin: 4px 0 8px;
+            margin: 6px 0 8px;
             font-size: 28px;
-            letter-spacing: .08em;
+            letter-spacing: 0.08em;
+            font-weight: 700;
         }
 
         .subtitle {
             margin: 0;
             font-size: 13px;
             color: #9b8089;
+            letter-spacing: 0.04em;
         }
 
         .content {
             position: relative;
             padding: 22px 20px 30px;
-        }
-
-        .hero {
-            display: grid;
-            gap: 16px;
-            align-items: center;
-            margin-bottom: 18px;
-        }
-
-        .image-card {
-            background: #fff7fa;
-            border: 1.5px solid var(--accent-soft);
-            border-radius: 24px;
-            padding: 12px;
-            box-shadow: 0 10px 24px rgba(190,140,155,.10);
-        }
-
-        .image-frame {
-            width: 100%;
-            aspect-ratio: 4/3;
-            border-radius: 18px;
-            border: 2px dashed #e7b7c5;
-            background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,246,249,.95));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-            .image-frame img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-                display: block;
-                background: white;
-            }
-
-        .image-placeholder {
-            display: none;
-            text-align: center;
-            color: #ae8593;
-            line-height: 1.8;
-            font-size: 14px;
-            padding: 16px;
-        }
-
-        .lead-box {
-            background: #fffaf2;
-            border: 1px solid #f0e0cf;
-            border-radius: 20px;
-            padding: 16px;
-            font-size: 14px;
-            line-height: 1.9;
-            color: #7b665d;
         }
 
         .divider {
@@ -164,7 +113,7 @@
             justify-content: center;
             color: #bf8094;
             font-size: 14px;
-            margin: 18px 2px 16px;
+            margin: 2px 2px 18px;
         }
 
             .divider::before,
@@ -179,19 +128,20 @@
             padding: 4px 8px 0;
             font-size: 16px;
             line-height: 2.05;
-            white-space: pre-line;
+            white-space: normal;
         }
 
             .body p {
-                margin: 0 0 1.15em;
+                margin: 0 0 1.3em;
+                text-indent: 0;
             }
 
         .signature {
-            margin-top: 24px;
+            margin-top: 28px;
             text-align: right;
             padding-right: 10px;
             font-size: 16px;
-            letter-spacing: .08em;
+            letter-spacing: 0.08em;
             color: #7d666d;
         }
 
@@ -203,12 +153,8 @@
         }
 
         @media (min-width: 720px) {
-            .hero {
-                grid-template-columns: 320px 1fr;
-            }
-
             .content {
-                padding: 26px 26px 34px;
+                padding: 28px 28px 36px;
             }
 
             .title {
@@ -219,59 +165,130 @@
                 font-size: 17px;
             }
         }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 16px 10px 28px;
+            }
+
+            .header {
+                padding: 24px 18px 16px;
+            }
+
+            .stamp {
+                width: 58px;
+                height: 58px;
+                font-size: 22px;
+                top: 12px;
+                right: 12px;
+            }
+
+            .title {
+                font-size: 24px;
+            }
+
+            .content {
+                padding: 18px 14px 24px;
+            }
+
+            .body {
+                font-size: 15px;
+                line-height: 1.95;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="wrap">
-        <div class="top-note">手紙風デザイン ベース</div>
+        <div class="top-note">Birthday Letter</div>
 
         <section class="letter">
             <header class="header">
                 <div class="stamp">❤</div>
                 <h1 class="title">あゆみへ</h1>
-                <p class="subtitle">いつもありがとうの気持ちをこめて</p>
             </header>
 
             <div class="content">
                 <div class="divider">✿</div>
 
                 <div class="body">
+                    <p>まずは誕生日おめでとう。</p>
+
                     <p>
-                        なんか改めて言うのは少し照れるけど、いつも一緒にいてくれてありがとう。
+                        あゆみと出会ったのはマッチングアプリだったよね。<br>
+                        最初はヒロアカが大好きな子っていう印象が強くて、正直そこが一番覚えてる（笑）
                     </p>
 
                     <p>
-                        一緒にいる時間がすごく楽しくて、
-                        気づいたら自然と話したいなって思ってる。
-                    </p>
-                    <div class="hero">
-                        <img src="snoopy.png" alt="スヌーピーの画像"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <div class="image-placeholder">
-                            ここにスヌーピー画像が入ります。<br>
-                            <strong>snoopy.png</strong> を同じフォルダに置いてください。
-                        </div>
-
-                        <div class="lead-box">
-                            少しだけ改まって、でも重すぎない感じで読めるようにした
-                            手紙風のベースです。文章はあとから自由に差し替えできます。
-                        </div>
-                    </div>
-                    <p>
-                        こうやって普通に話せる時間も、
-                        一緒に過ごせる時間も、
-                        どっちもすごく大事だなって思ってる。
+                        そこからあゆみの方からたくさん話しかけてくれて、<br>
+                        それがすごく嬉しくて、気づいたらどんどん仲良くなっていったなって思ってる。
                     </p>
 
                     <p>
-                        これからも、ゆっくりでいいから
-                        たくさん思い出を作っていけたら嬉しいです。
+                        付き合う前から思ってたけど、<br>
+                        あゆみは自分にないものをたくさん持ってるなって感じてて、
                     </p>
+
+                    <p>
+                        なんでも思ったことを話してくれる面白さとか、<br>
+                        自分より周りの人を大事にできる優しいところとか、
+                    </p>
+
+                    <p>
+                        そういうところを見てるうちに、<br>
+                        自然と「支えてあげたいな」って思うようになってたし、<br>
+                        それと同時にすごく可愛いなって思ってた。
+                    </p>
+
+                    <p>今でも好きだなって思うところはたくさんあって、</p>
+
+                    <p>
+                        笑顔が本当に可愛いところとか、<br>
+                        俺のいいところを見つけてくれるところとか、<br>
+                        一緒にいると安心できるところとか、
+                    </p>
+
+                    <p>
+                        あとは真剣にバスケに取り組んでる姿もすごく好きで、<br>
+                        そういう一つ一つを見てると、やっぱりあゆみっていいなって思う。
+                    </p>
+
+                    <p>
+                        その中でも一番好きになったのは、<br>
+                        プレゼントとかもすごく真剣に考えてくれたり、<br>
+                        自分よりも先に勇気を出してくれたところで、<br>
+                        本当に好きになったし、<br>
+                        同時にすごいなって少し憧れた。
+                    </p>
+
+                    <p>
+                        それに、家族のこととか大変なこともある中で、<br>
+                        ちゃんと話してくれたこともすごく嬉しかった。
+                    </p>
+
+                    <p>
+                        そういう話って簡単にできるものじゃないと思うし、<br>
+                        それを伝えてくれたことも含めて、<br>
+                        あゆみのことをもっと大事にしたいなって思ったよ。
+                    </p>
+
+                    <p>
+                        なんかこういう手紙書くこともないからうまく伝わったかわからないけど、<br>
+                        とにかく好きでいてくれてありがとう！
+                    </p>
+
+                    <p>
+                        これからも一緒にいようね。<br>
+                        大好きだよ❣
+                    </p>
+
+                    <div class="signature">しょうごより</div>
                 </div>
-                <div class="signature">しょうごより</div>
             </div>
 
-            <div class="footer">画像や本文はあとから差し替えできます。</div>
+            <div class="footer">
+                happy birthday
+            </div>
         </section>
     </div>
 </body>
